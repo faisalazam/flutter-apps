@@ -8,7 +8,7 @@ void main() {
 Size? mediaQuerySize;
 const int noOfSplashLogoRepeats = 30;
 const String splashLogoText = "LOGO TEXT";
-const MaterialColor appMainColor = Colors.deepPurple;
+const MaterialColor appMainColor = Colors.deepOrange;
 const String splashLogoPath = "assets/images/vertical-eye.png";
 
 class AnimatedSplashApp extends StatelessWidget {

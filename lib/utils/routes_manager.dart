@@ -1,6 +1,6 @@
 import 'package:animated_splash/main.dart';
 import 'package:animated_splash/utils/navigation_utils.dart';
-import 'package:animated_splash/widgets/animated_splash_page.dart';
+import 'package:animated_splash/pages/animated-splash/animated_splash_page.dart';
 import 'package:flutter/material.dart';
 
 class RoutesManager {
