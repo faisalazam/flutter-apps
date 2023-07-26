@@ -9,12 +9,15 @@ class AnimatedSplashPage extends StatefulWidget {
       required this.title,
       required this.splashLogoPath,
       required this.splashLogoText,
-      required this.noOfSplashLogoRepeats});
+      required this.noOfSplashLogoRepeats,
+      required this.onSplashAnimationEndCallback});
 
   final String title;
   final String splashLogoPath;
   final String splashLogoText;
   final int noOfSplashLogoRepeats;
+  final Function? onSplashAnimationEndCallback;
+
   static const String routeName = "/";
 
   @override
@@ -33,10 +36,13 @@ class _AnimatedSplashPageState extends State<AnimatedSplashPage>
   void initState() {
     super.initState();
     controller =
-        AnimationController(duration: const Duration(seconds: 1), vsync: this);
+        AnimationController(duration: const Duration(seconds: 2), vsync: this);
     animation = tween.animate(controller);
     controller
-      ..repeatFor(times: widget.noOfSplashLogoRepeats, context: context)
+      ..repeatFor(
+          times: widget.noOfSplashLogoRepeats,
+          context: context,
+          onSplashAnimationEndCallback: widget.onSplashAnimationEndCallback)
       ..forward(from: 1); // "from: 1" to start the animation from bottom.
   }
 
@@ -72,12 +78,17 @@ class _AnimatedSplashPageState extends State<AnimatedSplashPage>
 }
 
 extension on AnimationController {
-  void repeatFor({required int times, required BuildContext context}) {
+  void repeatFor(
+      {required int times,
+      required BuildContext context,
+      required Function? onSplashAnimationEndCallback}) {
     var count = 0;
     addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         if (++count < times) {
           reverse();
+        } else {
+          onSplashAnimationEndCallback!(context);
         }
       } else if (status == AnimationStatus.dismissed) {
         forward();
