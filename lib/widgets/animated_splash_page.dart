@@ -27,8 +27,8 @@ class _AnimatedSplashPageState extends State<AnimatedSplashPage>
     controller = AnimationController(
       vsync: this,
       lowerBound: 0,
-      upperBound: 200,
-      duration: const Duration(seconds: 1),
+      upperBound: mediaQuerySize!.height * 0.33,
+      duration: const Duration(seconds: 2),
     );
 
     controller.addListener(() {
@@ -48,7 +48,6 @@ class _AnimatedSplashPageState extends State<AnimatedSplashPage>
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       backgroundColor: appMainColor.shade50,
       body: SafeArea(
         child: Column(

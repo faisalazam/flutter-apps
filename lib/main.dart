@@ -5,6 +5,7 @@ void main() {
   runApp(const AnimatedSplashApp());
 }
 
+Size? mediaQuerySize;
 const String splashLogoText = "LOGO TEXT";
 const MaterialColor appMainColor = Colors.deepPurple;
 const String splashLogoPath = "assets/images/vertical-eye.png";
@@ -16,6 +17,9 @@ class AnimatedSplashApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (context.mounted) {
+      mediaQuerySize = MediaQuery.of(context).size;
+    }
     return MaterialApp(
       title: appTitle,
       theme: buildThemeData(),
