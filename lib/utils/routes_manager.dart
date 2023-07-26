@@ -1,6 +1,7 @@
 import 'package:animated_splash/main.dart';
-import 'package:animated_splash/utils/navigation_utils.dart';
 import 'package:animated_splash/pages/animated-splash/animated_splash_page.dart';
+import 'package:animated_splash/pages/welcome/welcome_page.dart';
+import 'package:animated_splash/utils/navigation_utils.dart';
 import 'package:flutter/material.dart';
 
 class RoutesManager {
@@ -12,7 +13,7 @@ class RoutesManager {
         splashLogoText: splashLogoText,
         noOfSplashLogoRepeats: noOfSplashLogoRepeats,
         onSplashAnimationEndCallback: onSplashAnimationEnd),
-    // WelcomePage.routeName: (context) => const WelcomePage(),
+    WelcomePage.routeName: (context) => const WelcomePage(),
   };
 
   static onSplashAnimationEnd(BuildContext context) {

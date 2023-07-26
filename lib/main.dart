@@ -6,7 +6,7 @@ void main() {
 }
 
 Size? mediaQuerySize;
-const int noOfSplashLogoRepeats = 30;
+const int noOfSplashLogoRepeats = 3;
 const String splashLogoText = "LOGO TEXT";
 const MaterialColor appMainColor = Colors.deepOrange;
 const String splashLogoPath = "assets/images/vertical-eye.png";

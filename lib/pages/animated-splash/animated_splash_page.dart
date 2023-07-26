@@ -71,9 +71,6 @@ class _AnimatedSplashPageState extends State<AnimatedSplashPage>
                   fontSize: Theme.of(context).textTheme.displaySmall?.fontSize),
             )),
           ),
-          ElevatedButton(
-              onPressed: () => Navigator.of(context).pushReplacementNamed("/"),
-              child: Text("Hey"))
         ],
       ),
     );
