@@ -1,4 +1,5 @@
 import 'package:animated_splash/main.dart';
+import 'package:animated_splash/widgets/animated_logo.dart';
 import 'package:animated_splash/widgets/common/scaffold_safe_area_wrapper.dart';
 import 'package:flutter/material.dart';
 
@@ -21,23 +22,17 @@ class AnimatedSplashPage extends StatefulWidget {
 }
 
 class _AnimatedSplashPageState extends State<AnimatedSplashPage>
-    with TickerProviderStateMixin {
+    with SingleTickerProviderStateMixin {
+  late Animation<double> animation;
   late AnimationController controller;
 
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(
-      vsync: this,
-      lowerBound: 0,
-      upperBound: mediaQuerySize!.height * 0.33,
-      duration: const Duration(seconds: 2),
-    );
-
-    controller.addListener(() {
-      setState(() {});
-    });
-
+    controller =
+        AnimationController(duration: const Duration(seconds: 2), vsync: this);
+    animation = Tween<double>(begin: 0, end: mediaQuerySize!.height * 0.33)
+        .animate(controller);
     controller
       ..repeatFor(times: widget.noOfSplashLogoRepeats, context: context)
       ..forward();
@@ -55,10 +50,8 @@ class _AnimatedSplashPageState extends State<AnimatedSplashPage>
       child: Column(
         children: [
           Expanded(
-            child: Container(
-                margin: EdgeInsets.only(top: controller.value),
-                child: Image.asset(widget.splashLogoPath,
-                    width: mediaQuerySize!.width * 0.13)),
+            child: AnimatedLogo(
+                animation: animation, splashLogoPath: widget.splashLogoPath),
           ),
           Expanded(
             child: SizedBox.expand(
