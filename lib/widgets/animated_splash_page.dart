@@ -17,7 +17,33 @@ class AnimatedSplashPage extends StatefulWidget {
   State<AnimatedSplashPage> createState() => _AnimatedSplashPageState();
 }
 
-class _AnimatedSplashPageState extends State<AnimatedSplashPage> {
+class _AnimatedSplashPageState extends State<AnimatedSplashPage>
+    with TickerProviderStateMixin {
+  late AnimationController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(
+      vsync: this,
+      lowerBound: 0,
+      upperBound: 200,
+      duration: const Duration(seconds: 1),
+    );
+
+    controller.addListener(() {
+      setState(() {});
+    });
+
+    controller.repeat();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +55,7 @@ class _AnimatedSplashPageState extends State<AnimatedSplashPage> {
           children: [
             Expanded(
               child: Container(
-                  // margin: EdgeInsets.only(top: controller.value),
+                  margin: EdgeInsets.only(top: controller.value),
                   child: Image.asset(widget.splashLogoPath, width: 60)),
             ),
             Expanded(
