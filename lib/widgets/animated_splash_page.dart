@@ -55,7 +55,8 @@ class _AnimatedSplashPageState extends State<AnimatedSplashPage>
             Expanded(
               child: Container(
                   margin: EdgeInsets.only(top: controller.value),
-                  child: Image.asset(widget.splashLogoPath, width: 60)),
+                  child: Image.asset(widget.splashLogoPath,
+                      width: mediaQuerySize!.width * 0.13)),
             ),
             Expanded(
               child: SizedBox.expand(
