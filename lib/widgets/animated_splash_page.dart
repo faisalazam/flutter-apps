@@ -60,13 +60,14 @@ class _AnimatedSplashPageState extends State<AnimatedSplashPage>
             ),
             Expanded(
               child: SizedBox.expand(
-                child: Text(
-                  widget.splashLogoText,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: appMainColor.withOpacity(0.7), fontSize: 40),
-                ),
-              ),
+                  child: Text(
+                widget.splashLogoText,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: appMainColor.withOpacity(0.7),
+                    fontSize:
+                        Theme.of(context).textTheme.displaySmall?.fontSize),
+              )),
             ),
           ],
         ),
