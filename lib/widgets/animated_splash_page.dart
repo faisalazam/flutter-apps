@@ -7,11 +7,13 @@ class AnimatedSplashPage extends StatefulWidget {
       {super.key,
       required this.title,
       required this.splashLogoPath,
-      required this.splashLogoText});
+      required this.splashLogoText,
+      required this.noOfSplashLogoRepeats});
 
   final String title;
   final String splashLogoPath;
   final String splashLogoText;
+  final int noOfSplashLogoRepeats;
   static const String routeName = "/";
 
   @override
@@ -36,7 +38,9 @@ class _AnimatedSplashPageState extends State<AnimatedSplashPage>
       setState(() {});
     });
 
-    controller.repeat();
+    controller
+      ..repeatFor(times: widget.noOfSplashLogoRepeats, context: context)
+      ..forward();
   }
 
   @override
@@ -69,5 +73,20 @@ class _AnimatedSplashPageState extends State<AnimatedSplashPage>
         ],
       ),
     );
+  }
+}
+
+extension on AnimationController {
+  void repeatFor({required int times, required BuildContext context}) {
+    var count = 0;
+    addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        if (++count < times) {
+          reverse();
+        }
+      } else if (status == AnimationStatus.dismissed) {
+        forward();
+      }
+    });
   }
 }

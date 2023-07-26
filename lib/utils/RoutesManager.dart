@@ -9,6 +9,7 @@ class RoutesManager {
           title: 'Flutter - Animated Splash',
           splashLogoPath: splashLogoPath,
           splashLogoText: splashLogoText,
+          noOfSplashLogoRepeats: noOfSplashLogoRepeats,
         ),
   };
 }
