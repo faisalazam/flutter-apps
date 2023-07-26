@@ -26,16 +26,18 @@ class _AnimatedSplashPageState extends State<AnimatedSplashPage>
   late Animation<double> animation;
   late AnimationController controller;
 
+  static Tween<double> tween =
+      Tween<double>(begin: 0, end: mediaQuerySize!.height * 0.33);
+
   @override
   void initState() {
     super.initState();
     controller =
-        AnimationController(duration: const Duration(seconds: 2), vsync: this);
-    animation = Tween<double>(begin: 0, end: mediaQuerySize!.height * 0.33)
-        .animate(controller);
+        AnimationController(duration: const Duration(seconds: 1), vsync: this);
+    animation = tween.animate(controller);
     controller
       ..repeatFor(times: widget.noOfSplashLogoRepeats, context: context)
-      ..forward();
+      ..forward(from: 1); // "from: 1" to start the animation from bottom.
   }
 
   @override
