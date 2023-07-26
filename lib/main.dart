@@ -1,4 +1,4 @@
-import 'package:animated_splash/utils/RoutesManager.dart';
+import 'package:animated_splash/utils/routes_manager.dart';
 import 'package:flutter/material.dart';
 
 void main() {
