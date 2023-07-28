@@ -1,4 +1,5 @@
-import 'package:animated_splash/common-widgets/animation_widget.dart';
+import 'package:animated_splash/common-widgets/animation/animation_type.dart';
+import 'package:animated_splash/common-widgets/animation/animation_widget.dart';
 import 'package:animated_splash/common-widgets/scaffold_safe_area_wrapper.dart';
 import 'package:animated_splash/main.dart';
 import 'package:flutter/material.dart';
@@ -10,12 +11,14 @@ class AnimatedSplashPage extends StatelessWidget {
       required this.splashLogoPath,
       required this.splashLogoText,
       required this.noOfSplashLogoRepeats,
-      required this.onSplashAnimationEndCallback});
+      required this.onSplashAnimationEndCallback,
+      required this.animationType});
 
   final String title;
   final String splashLogoPath;
   final String splashLogoText;
   final int noOfSplashLogoRepeats;
+  final AnimationType animationType;
   final Function? onSplashAnimationEndCallback;
 
   static const String routeName = "/";
@@ -27,6 +30,7 @@ class AnimatedSplashPage extends StatelessWidget {
         children: [
           AnimationWidget(
             end: mediaQuerySize!.height * 0.33,
+            animationType: animationType,
             noOfRepeats: noOfSplashLogoRepeats,
             onAnimationEndCallback: onSplashAnimationEndCallback,
             animatableWidget: Image.asset(splashLogoPath,

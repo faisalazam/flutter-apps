@@ -1,5 +1,5 @@
 import 'package:animated_splash/main.dart';
-import 'package:animated_splash/pages/animated-splash/animation_container.dart';
+import 'package:animated_splash/common-widgets/animation/animation_container.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
