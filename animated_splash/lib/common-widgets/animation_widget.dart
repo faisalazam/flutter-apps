@@ -1,8 +1,9 @@
-import 'package:animated_splash/pages/animated-splash/up_down_animation_container.dart';
+import 'package:animated_splash/pages/animated-splash/animation_container.dart';
+import 'package:animated_splash/utils/animation_type.dart';
 import 'package:flutter/material.dart';
 
-class UpDownAnimationWidget extends StatefulWidget {
-  const UpDownAnimationWidget(
+class AnimationWidget extends StatefulWidget {
+  const AnimationWidget(
       {super.key,
       this.noOfRepeats,
       this.begin,
@@ -17,10 +18,10 @@ class UpDownAnimationWidget extends StatefulWidget {
   final Function? onAnimationEndCallback;
 
   @override
-  State<UpDownAnimationWidget> createState() => _UpDownAnimationWidgetState();
+  State<AnimationWidget> createState() => _AnimationWidgetState();
 }
 
-class _UpDownAnimationWidgetState extends State<UpDownAnimationWidget>
+class _AnimationWidgetState extends State<AnimationWidget>
     with SingleTickerProviderStateMixin {
   late Animation<double> animation;
   late AnimationController controller;
@@ -53,8 +54,10 @@ class _UpDownAnimationWidgetState extends State<UpDownAnimationWidget>
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: UpDownAnimationContainer(
-          animation: animation, animatableWidget: widget.animatableWidget),
+      child: AnimationContainer(
+          animation: animation,
+          animationType: AnimationType.upDown,
+          animatableWidget: widget.animatableWidget),
     );
   }
 }

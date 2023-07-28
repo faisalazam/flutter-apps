@@ -1,5 +1,5 @@
+import 'package:animated_splash/common-widgets/animation_widget.dart';
 import 'package:animated_splash/common-widgets/scaffold_safe_area_wrapper.dart';
-import 'package:animated_splash/common-widgets/up_down_animation_widget.dart';
 import 'package:animated_splash/main.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +25,7 @@ class AnimatedSplashPage extends StatelessWidget {
     return ScaffoldSafeAreaWrapper(
       child: Column(
         children: [
-          UpDownAnimationWidget(
+          AnimationWidget(
             end: mediaQuerySize!.height * 0.33,
             noOfRepeats: noOfSplashLogoRepeats,
             onAnimationEndCallback: onSplashAnimationEndCallback,

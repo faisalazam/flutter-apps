@@ -1,5 +1,5 @@
 import 'package:animated_splash/main.dart';
-import 'package:animated_splash/pages/animated-splash/up_down_animation_container.dart';
+import 'package:animated_splash/pages/animated-splash/animation_container.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -8,6 +8,6 @@ void main() {
     await tester.pumpWidget(const AnimatedSplashApp());
 
     expect(find.text('LOGO TEXT'), findsOneWidget);
-    expect(find.byType(UpDownAnimationContainer), findsOneWidget);
+    expect(find.byType(AnimationContainer), findsOneWidget);
   });
 }
